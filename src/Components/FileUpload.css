@@ -1,0 +1,42 @@
+/* 
+.file-upload-container {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #f8f5f1; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-upload-container input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.file-upload-container button {
+  background-color: #d66390;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-upload-container button:hover {
+  background-color: #e08661; 
+} */
+/* src/components/FileUpload.css */
+
+.background {
+  background-image: url("../assets/background.jpg"); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5; /* Adjust the transparency */
+  height: 100vh; /* Adjust the height according to your requirement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
