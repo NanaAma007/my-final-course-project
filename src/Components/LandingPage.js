@@ -1,9 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, Container } from "@mui/material";
-import "./LandingPage.css"; // Import the new CSS file
+import "./LandingPage.css";
 
 const LandingPage = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check local storage for login status
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleUploadClick = () => {
+    if (!isLoggedIn) {
+      alert("Please log in or sign up to upload files.");
+      navigate("/login");
+    } else {
+      navigate("/upload");
+    }
+  };
+
   return (
     <div className="landing-page">
       <AppBar position="static">
@@ -41,8 +61,7 @@ const LandingPage = () => {
           <Button
             variant="contained"
             color="primary"
-            component={Link}
-            to="/upload"
+            onClick={handleUploadClick}
           >
             Get Started
           </Button>

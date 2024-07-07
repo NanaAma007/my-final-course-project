@@ -1,65 +1,53 @@
-/* Style for the body to center the form and apply background color for login and signup pages only */
 .login-signup-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #bfa3d3; /* Purple background color */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
+  background: url("") no-repeat left center;
+  background-size: cover;
 }
 
-/* Container for the form */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: #ffffff;
+.form-container-wrapper {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slightly transparent white background */
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-}
-
-/* Style for the heading */
-.form-container h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Style for the form */
-.form-container form {
   width: 100%;
+  padding: 20px;
+  text-align: center;
 }
 
-/* Style for each form group */
-.form-container form div {
+h2 {
+  margin-bottom: 20px;
+}
+
+form div {
   margin-bottom: 15px;
+  text-align: left;
 }
 
-/* Style for the labels */
-.form-container form label {
+label {
   display: block;
   margin-bottom: 5px;
-  color: #555;
 }
 
-/* Style for the input fields */
-.form-container form input {
+input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
 }
 
-/* Style for the submit button */
-.form-container form button {
+button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #6200ea;
   color: white;
   border: none;
   border-radius: 4px;
@@ -67,7 +55,21 @@
   font-size: 16px;
 }
 
-/* Hover effect for the submit button */
-.form-container form button:hover {
-  background-color: #0056b3;
+button:hover {
+  background-color: #3700b3;
+}
+
+p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+p a {
+  color: #6200ea;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
 }

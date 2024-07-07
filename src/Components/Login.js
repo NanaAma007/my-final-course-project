@@ -1,48 +1,47 @@
-import React, { useState, useEffect } from "react";
-import "./LoginSignup.css";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, Container, TextField, Typography, Box } from "@mui/material";
+import "./Auth.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    document.body.classList.add("login-signup-body");
-
-    return () => {
-      document.body.classList.remove("login-signup-body");
-    };
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log("Login:", { email, password });
+  const handleLogin = () => {
+    // Handle login logic
   };
 
   return (
-    <div className="form-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+    <div className="auth-page">
+      <div className="auth-image" />
+      <div className="auth-form">
+        <Container className="content">
+          <Typography variant="h4" gutterBottom>
+            Login
+          </Typography>
+          <Box sx={{ marginBottom: 2 }}>
+            <TextField
+              label="Email"
+              fullWidth
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Box>
+          <Box sx={{ marginBottom: 2 }}>
+            <TextField
+              label="Password"
+              type="password"
+              fullWidth
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Box>
+          <Button variant="contained" color="primary" onClick={handleLogin}>
+            Login
+          </Button>
+        </Container>
+      </div>
     </div>
   );
 };

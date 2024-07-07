@@ -7,6 +7,7 @@ import SharedFiles from "./Components/SharedFiles";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import { CssBaseline } from "@mui/material";
+import DownloadFile from "./Components/DownloadFile";
 
 const App = () => {
   const [users, setUsers] = useState(
@@ -18,6 +19,8 @@ const App = () => {
     setFiles([...files, file]);
   };
 
+  const [logIn, setIsLoggedIn] = useState(false);
+
   return (
     <Router>
       <CssBaseline />
@@ -25,8 +28,12 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/upload" element={<FileUpload addFile={addFile} />} />
         <Route path="/shared" element={<SharedFiles files={files} />} />
-        <Route path="/Login" element={<Login />} />
+        <Route
+          path="/Login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
         <Route path="/Signup" element={<Signup setUsers={setUsers} />} />
+        <Route path="/download/:id" element={<DownloadFile files={files} />} />
       </Routes>
     </Router>
   );

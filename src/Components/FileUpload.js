@@ -11,20 +11,22 @@ const FileUpload = ({ addFile }) => {
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
       setFile(e.target.files[0]);
-      setLink(URL.createObjectURL(e.target.files[0]));
+      const fileUrl = URL.createObjectURL(e.target.files[0]);
+      const uniqueId = Math.random().toString(36).substring(2, 15); // Generate a unique ID
+      setLink(`${window.location.origin}/download/${uniqueId}`);
+      addFile({ name: e.target.files[0].name, link: fileUrl, id: uniqueId });
     }
   };
 
   const handleUpload = () => {
     if (file) {
-      addFile({ name: file.name, link });
       navigate("/shared");
     }
   };
 
   return (
     <div className="background">
-      <Container sx={{ textAlign: "center", marginTop: 8 }}>
+      <Container className="content">
         <Typography variant="h4" gutterBottom>
           Upload Your File
         </Typography>

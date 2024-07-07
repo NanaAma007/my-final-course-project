@@ -1,4 +1,3 @@
-// src/components/SharedFiles.js
 import React from "react";
 import {
   Container,
@@ -6,6 +5,8 @@ import {
   List,
   ListItem,
   ListItemText,
+  Divider,
+  Paper,
 } from "@mui/material";
 
 const SharedFiles = ({ files }) => {
@@ -14,20 +15,31 @@ const SharedFiles = ({ files }) => {
       <Typography variant="h4" gutterBottom>
         Shared Files
       </Typography>
-      <List>
-        {files.map((file, index) => (
-          <ListItem
-            key={index}
-            component="a"
-            href={file.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            button
-          >
-            <ListItemText primary={file.name} />
-          </ListItem>
-        ))}
-      </List>
+      <Paper elevation={3} sx={{ padding: 2 }}>
+        <List sx={{ width: "100%", maxWidth: 600, margin: "0 auto" }}>
+          {files.map((file, index) => (
+            <React.Fragment key={index}>
+              <ListItem
+                component="a"
+                href={file.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                button
+                sx={{
+                  backgroundColor: "#f5f5f5",
+                  marginBottom: 1,
+                  "&:hover": {
+                    backgroundColor: "#e0e0e0",
+                  },
+                }}
+              >
+                <ListItemText primary={file.name} secondary={file.link} />
+              </ListItem>
+              {index < files.length - 1 && <Divider />}
+            </React.Fragment>
+          ))}
+        </List>
+      </Paper>
     </Container>
   );
 };
