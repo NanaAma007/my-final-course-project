@@ -20,7 +20,7 @@ const FileUpload = ({ addFile }) => {
 
   const handleUpload = () => {
     if (file) {
-      navigate("/shared");
+      navigate("/managefiles");
     }
   };
 
@@ -32,14 +32,19 @@ const FileUpload = ({ addFile }) => {
         </Typography>
         <Input type="file" onChange={handleFileChange} />
         <Box sx={{ marginTop: 2 }}>
-          <Button variant="contained" color="primary" onClick={handleUpload}>
+          <Button
+            className="small-button"
+            variant="contained"
+            color="primary"
+            onClick={handleUpload}
+          >
             Upload
           </Button>
         </Box>
         {link && (
           <Box sx={{ marginTop: 4 }}>
             <Typography variant="subtitle1" gutterBottom>
-              File uploaded! Share this link:
+              Share this link:
             </Typography>
             <a href={link} target="_blank" rel="noopener noreferrer">
               {link}

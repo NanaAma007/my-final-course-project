@@ -6,6 +6,8 @@
   margin: 0;
   background: url("") no-repeat left center;
   background-size: cover;
+  background-color: rgb(93, 93, 219);
+  padding-top: 64px; /* Adjust this value to the height of the navbar */
 }
 
 .form-container-wrapper {
@@ -21,6 +23,7 @@
   width: 100%;
   padding: 20px;
   text-align: center;
+  margin-top: 64px; /* Add top margin to push it below the navbar */
 }
 
 h2 {

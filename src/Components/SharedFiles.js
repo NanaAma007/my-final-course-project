@@ -10,6 +10,17 @@ import {
 } from "@mui/material";
 
 const SharedFiles = ({ files }) => {
+  // Ensure files is defined and not null or empty
+  if (!files || files.length === 0) {
+    return (
+      <Container sx={{ textAlign: "center", marginTop: 8 }}>
+        <Typography variant="h4" gutterBottom>
+          No files shared yet
+        </Typography>
+      </Container>
+    );
+  }
+
   return (
     <Container sx={{ textAlign: "center", marginTop: 8 }}>
       <Typography variant="h4" gutterBottom>
@@ -33,7 +44,7 @@ const SharedFiles = ({ files }) => {
                   },
                 }}
               >
-                <ListItemText primary={file.name} secondary={file.link} />
+                <ListItemText primary={file.name} />
               </ListItem>
               {index < files.length - 1 && <Divider />}
             </React.Fragment>
